@@ -14,7 +14,7 @@ typedef struct LinkNode {
  * 设置随机数种子为当前系统时间
  **/
 void updateRandomSeed() {
-    srand((unsigned int) (time(NULL)));
+    srand((unsigned int) (time(nullptr)));
 }
 
 LinkList generateListWithHeadNode(int len) {
@@ -23,14 +23,14 @@ LinkList generateListWithHeadNode(int len) {
     updateRandomSeed();
     
     // 初始化头结点
-    LinkList list = (LinkList) malloc(sizeof(LinkNode));
+    auto list = (LinkList) malloc(sizeof(LinkNode));
     list->data = -1;
-    list->next = NULL;
+    list->next = nullptr;
 
     // 生成指定数量的结点
     for (int i = 0; i < len; i++) {
-        LinkNode *node = (LinkNode*) malloc(sizeof(LinkNode));
-        node->data = rand();
+        auto *node = (LinkNode*) malloc(sizeof(LinkNode));
+        node->data = rand() % 10 + 1;
         node->next = list->next;
         list->next = node;
     }
@@ -39,12 +39,40 @@ LinkList generateListWithHeadNode(int len) {
 }
 
 /**
+ * 获取链表中第 index 个结点，如果 index 无效或未找到，
+ * 则返回 NULL，否则返回该结点的引用。
+ *
+ * @param list 待查询的链表
+ * @param index 需要查询的元素下标，从 1 开始计
+ * @return 指定下标对应的结点指针
+ */
+LinkNode* get(LinkList &list, int index) {
+
+
+    printf("Start to find the %dth node => ", index);
+
+    LinkNode *p = list;
+    int count = 0;
+
+    while (p != nullptr && count != index) {
+        count++;
+        p = p->next;
+    }
+
+    if (count != index) {
+        p = nullptr;
+    }
+
+    printf("Look up end, the value is: %d\n", p == nullptr ? NULL : p->data);
+    return p;
+}
+
+/**
  * 打印给定的链表
  **/
 void printList(LinkList list) {
 
     printf("LinkList: [");
-
 
     for (LinkNode *p = list; p != NULL; p = p->next) {
         printf("%d", p->data);

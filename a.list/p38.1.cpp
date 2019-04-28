@@ -3,12 +3,10 @@
 
 #include "./a.linklist.cpp"
 
-
 /**
  * Question:
  * - 设计一个递归算法，删除不带头结点的单链表 L 中所有值为 x 的结点；
  **/
-
 void removeElement(LinkList &list, ElementType x) {
 
     // 如果链表为空，直接返回
