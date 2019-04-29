@@ -17,6 +17,13 @@ void updateRandomSeed() {
     srand((unsigned int) (time(nullptr)));
 }
 
+/**
+ * 生成带头结点的指定长度的单链表，使用头插法将随机生成的元素
+ * 插入到链表中；
+ *
+ * @param len 链表的长度（不包含头结点）
+ * @return 生成的链表
+ */
 LinkList generateListWithHeadNode(int len) {
 
     // 更新随机数种子
@@ -74,9 +81,9 @@ void printList(LinkList list) {
 
     printf("LinkList: [");
 
-    for (LinkNode *p = list; p != NULL; p = p->next) {
+    for (LinkNode *p = list; p != nullptr; p = p->next) {
         printf("%d", p->data);
-        if (p->next != NULL) {
+        if (p->next != nullptr) {
             printf(" -> ");
         }
     }
