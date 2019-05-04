@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./a.linklist.cpp"
+#include "b.linklist.cpp"
 
 /**
  * Question:

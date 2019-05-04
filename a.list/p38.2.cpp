@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./a.linklist.cpp"
+#include "b.linklist.cpp"
 
 /**
  * Question:
@@ -9,7 +9,7 @@
  **/
 void removeElement(LinkList &list, ElementType x) {
 
-    /**
+    /*
      * 思路：
      * 1. 设置两个指针：p 指向当前元素，q 指向 p 的前驱结点；
      * 2. 如果 p 的值为 x，则删除 p 结点并将 p 后移；

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./a.linklist.cpp"
+#include "b.linklist.cpp"
 
 /**
  * Question:
@@ -13,7 +13,7 @@
  **/
  void reversePrint(LinkList &list) {
 
-     /**
+     /*
       * 思路：
       * --
       * 1. 头结点不动，顺序遍历每个元素，使用头插法插入该头结点；

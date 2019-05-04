@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <random>
+
+#include "../z.common/utils.random.cpp"
 
 // Typedef
 typedef int ElementType;
@@ -11,13 +11,6 @@ typedef struct LinkNode {
 } LinkNode, *LinkList;
 
 /**
- * 设置随机数种子为当前系统时间
- **/
-void updateRandomSeed() {
-    srand((unsigned int) (time(nullptr)));
-}
-
-/**
  * 生成带头结点的指定长度的单链表，使用头插法将随机生成的元素
  * 插入到链表中；
  *
@@ -25,9 +18,6 @@ void updateRandomSeed() {
  * @return 生成的链表
  */
 LinkList generateListWithHeadNode(int len) {
-
-    // 更新随机数种子
-    updateRandomSeed();
     
     // 初始化头结点
     auto list = (LinkList) malloc(sizeof(LinkNode));
@@ -37,7 +27,7 @@ LinkList generateListWithHeadNode(int len) {
     // 生成指定数量的结点
     for (int i = 0; i < len; i++) {
         auto *node = (LinkNode*) malloc(sizeof(LinkNode));
-        node->data = rand() % 10 + 1;
+        node->data = randomInt(10);
         node->next = list->next;
         list->next = node;
     }
@@ -70,7 +60,7 @@ LinkNode* get(LinkList &list, int index) {
         p = nullptr;
     }
 
-    printf("Look up end, the value is: %d\n", p == nullptr ? NULL : p->data);
+    printf("Look up end, the value is: %ld\n", p == nullptr ? NULL : p->data);
     return p;
 }
 
