@@ -108,7 +108,6 @@ int locateElement(SeqList* list, ElementType e) {
  * 判断给定的顺序表是否为空，返回 true 则表示顺序表为空；
  */
 bool isEmpty(SeqList* &list) {
-
     return list->length == 0;
 }
 
