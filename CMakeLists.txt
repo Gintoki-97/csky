@@ -3,4 +3,4 @@ project(csky)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(csky a.list/p38.5.cpp)
+add_executable(csky a.list/p18.1.cpp)
