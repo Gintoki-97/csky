@@ -143,3 +143,24 @@ void printList(SeqList* list) {
 
     printf("]\n");
 }
+
+/**
+ * 对传入的顺序表进行排序，默认为升序排序
+ * @param list 需要排序的顺序表
+ */
+void sortList(SeqList* list) {
+
+    if (isEmpty(list)) {
+        return;
+    }
+
+    for (int i = 0; i < list->length - 1; i++) {
+        for (int j = i + 1; j < list->length; j++) {
+            if (list->data[i] > list->data[j]) {
+                int temp = list->data[i];
+                list->data[i] = list->data[j];
+                list->data[j] = temp;
+            }
+        }
+    }
+}

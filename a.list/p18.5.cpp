@@ -36,9 +36,21 @@ void distinctList(SeqList* list) {
     list->length = i;
 }
 
-void testDistinctList() {
+int main() {
+
+    printf("Distinct the sequence list:\n");
     SeqList* list = generateSeqList(20);
+
+    printf("Generated List \t=> ");
     printList(list);
+
+    printf("After Sorted \t=> ");
+    sortList(list);
+    printList(list);
+
+    printf("After Distinct \t=> ");
     distinctList(list);
     printList(list);
+
+    return 1;
 }
